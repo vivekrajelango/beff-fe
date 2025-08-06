@@ -128,7 +128,7 @@ const AnalyticsCharts = () => {
     
     return (
       <div className="grid grid-cols-4 gap-2 h-64">
-        {analyticsData.geographicData.map((region, index) => {
+        {analyticsData.geographicData.map((region) => {
           const intensity = (region.revenue / maxRevenue) * 100;
           const size = region.size;
           

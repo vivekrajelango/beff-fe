@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+
+interface UserData {
+  name: string;
+  email: string;
+  plan: string;
+  joinDate: string;
+  createdAt?: string;
+}
+
 interface NavigationProps {
   currentPage?: 'dashboard' | 'profile' | 'landing';
   showTabs?: boolean;
@@ -22,7 +31,7 @@ export default function Navigation({
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   const checkAuth = () => {
     const token = localStorage.getItem('authToken');
@@ -99,7 +108,7 @@ export default function Navigation({
             </>
           ) : (
             <>
-              <Link href="/auth" className="text-white hover:text-purple-300 transition-colors">
+              <Link href="/auth" className="text-white hover:text-purple-300 transition-colors mt-2">
                 Sign In
               </Link>
               <button 

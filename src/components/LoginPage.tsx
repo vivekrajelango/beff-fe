@@ -67,8 +67,8 @@ export default function LoginPage() {
       } else {
         throw new Error('No token received');
       }
-    } catch (err: any) {
-      setError(err.message || 'An error occurred');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setIsLoading(false);
     }
@@ -208,10 +208,10 @@ export default function LoginPage() {
               
               <div className="flex space-x-3">
                 <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg py-3 px-4 transition-colors flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">Google</span>
+                  <span className="text-white text-sm font-medium">LINE</span>
                 </button>
                 <button className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg py-3 px-4 transition-colors flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">Facebook</span>
+                  <span className="text-white text-sm font-medium">Google</span>
                 </button>
               </div>
             </div>
@@ -225,6 +225,16 @@ export default function LoginPage() {
                   ? 'Already have an account? Sign in' 
                   : "Don't have an account? Sign up"
                 }
+              </button>
+            </div>
+
+            <div className="mt-6 text-center flex flex-row items-center justify-center">
+              <button
+                type="submit"
+                onClick={()=>router.push('/')}
+                className="w-1/3 bg-purple-400 hover:bg-purple-300 text-white font-semibold py-1 rounded-lg transition-colors flex items-center justify-center"
+              >
+                Cancel
               </button>
             </div>
 

@@ -4,8 +4,32 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Navigation from './Navigation';
 
+
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  plan: string;
+  joinDate: string;
+  lastLogin: string;
+  createdAt?: string;
+  preferences: {
+    emailNotifications: boolean;
+    smsNotifications: boolean;
+    marketingEmails: boolean;
+    dataProcessing: boolean;
+  };
+  dataUsage: {
+    storageUsed: string;
+    apiCalls: string;
+    lastBackup: string;
+  };
+}
+
 // Mock user data
-const mockUserData = {
+const mockUserData: UserData = {
   id: 'user_123456',
   name: 'John Doe',
   email: 'john.doe@example.com',
@@ -29,7 +53,7 @@ const mockUserData = {
 
 export default function ProfilePage() {
   const router = useRouter();
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
@@ -37,7 +61,7 @@ export default function ProfilePage() {
   const [saveError, setSaveError] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [showDataExport, setShowDataExport] = useState(false);
+  // const [showDataExport, setShowDataExport] = useState(false);
   const [exportStatus, setExportStatus] = useState<'idle' | 'processing' | 'ready'>('idle');
 
   useEffect(() => {
@@ -137,8 +161,8 @@ export default function ProfilePage() {
       // Show success message briefly before redirect
       setShowSuccessModal(true);
       
-    } catch (err: any) {
-      setSaveError(err.message || 'Failed to update profile');
+    } catch (err: unknown) {
+      setSaveError(err instanceof Error ? err.message : 'Failed to update profile');
     } finally {
       setIsSaving(false);
       setIsEditing(false);
@@ -420,7 +444,7 @@ export default function ProfilePage() {
                           </p>
                           <p className="text-red-300 text-xs mb-4">
                             This will permanently delete all your data and cannot be undone. 
-                            Type "DELETE" below to confirm.
+                            Type &quot;DELETE&quot; below to confirm.
                           </p>
                           <input
                             type="text"

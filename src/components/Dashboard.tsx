@@ -6,6 +6,30 @@ import { useRouter } from 'next/navigation';
 import Navigation from './Navigation';
 import AnalyticsCharts from './AnalyticsCharts';
 
+interface UserStats {
+  totalUsers: number;
+  monthlyRevenue: number;
+  activeSubscriptions: number;
+  conversionRate: number;
+}
+
+interface RecentActivity {
+  id: number;
+  action: string;
+  time: string;
+  type: string;
+}
+
+interface UserData {
+  name: string;
+  email: string;
+  plan: string;
+  joinDate: string;
+  createdAt?: string;
+  stats: UserStats;
+  recentActivity: RecentActivity[];
+}
+
 // Mock data for dashboard
 const mockUserData = {
   name: 'John Doe',
@@ -29,7 +53,7 @@ const mockUserData = {
 export default function Dashboard() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState('overview');
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -124,7 +148,7 @@ export default function Dashboard() {
             Welcome back, {userData.name.split(' ')[0]}!
           </h1>
           <p className="text-gray-300">
-            Here's what's happening with your SaaS business today.
+            Here&apos;s what&apos;s happening with your SaaS business today.
           </p>
           <div className="mt-4 p-4 bg-white/10 backdrop-blur-md rounded-lg border border-white/20">
             <h3 className="text-white font-semibold mb-2">Your Account Details:</h3>
@@ -139,7 +163,7 @@ export default function Dashboard() {
               </div>
               <div>
                 <span className="text-gray-300">Member since: </span>
-                <span className="text-white">{new Date(userData.createdAt).toLocaleDateString()}</span>
+                <span className="text-white">{new Date(userData.createdAt || userData.joinDate).toLocaleDateString()}</span>
               </div>
             </div>
           </div>

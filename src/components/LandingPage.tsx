@@ -91,8 +91,8 @@ export default function LandingPage() {
               </form>
             ) : (
               <div className="text-center">
-                <div className="text-green-400 text-lg font-semibold mb-2">✓ You're on the list!</div>
-                <p className="text-white/70 text-sm">We'll notify you when we launch.</p>
+                <div className="text-green-400 text-lg font-semibold mb-2">✓ You&apos;re on the list!</div>
+                <p className="text-white/70 text-sm">We&apos;ll notify you when we launch.</p>
               </div>
             )}
           </div>
