@@ -87,33 +87,33 @@ export default function Navigation({
   // Landing page navigation (different layout)
   if (currentPage === 'landing') {
     return (
-      <nav className="relative z-10 flex justify-between items-center p-6">
+      <nav className="relative z-10 flex justify-between items-center p-4 sm:p-6">
         <button 
           onClick={handleLogoClick}
-          className="text-white text-2xl font-bold hover:text-purple-300 transition-colors cursor-pointer"
+          className="text-white text-lg sm:text-2xl font-bold hover:text-purple-300 transition-colors cursor-pointer flex-shrink-0"
         >
           StellarSaaS
         </button>
-        <div className="flex space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-4">
           {!isClient ? (
-            <div className="w-24 h-8 bg-white/10 rounded animate-pulse"></div>
+            <div className="w-16 sm:w-24 h-6 sm:h-8 bg-white/10 rounded animate-pulse"></div>
           ) : isAuthenticated ? (
             <>
-              <Link href="/dashboard" className="text-white hover:text-purple-300 transition-colors">
+              <Link href="/dashboard" className="text-white hover:text-purple-300 transition-colors text-sm sm:text-base">
                 Dashboard
               </Link>
-              <Link href="/profile" className="text-white hover:text-purple-300 transition-colors">
+              <Link href="/profile" className="text-white hover:text-purple-300 transition-colors text-sm sm:text-base">
                 Profile
               </Link>
             </>
           ) : (
             <>
-              <Link href="/auth" className="text-white hover:text-purple-300 transition-colors mt-2">
+              <Link href="/auth" className="text-white hover:text-purple-300 transition-colors text-sm sm:text-base">
                 Sign In
               </Link>
               <button 
                 onClick={handleGetStarted}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="bg-purple-600 hover:bg-purple-700 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg transition-colors text-sm sm:text-base"
               >
                 Get Started
               </button>
@@ -127,12 +127,12 @@ export default function Navigation({
   // Dashboard/Profile navigation (glassmorphism layout)
   return (
     <nav className="bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4 sm:space-x-8 flex-1 min-w-0">
             <button 
               onClick={handleLogoClick}
-              className="text-white text-xl font-bold hover:text-purple-300 transition-colors cursor-pointer"
+              className="text-white text-base sm:text-xl font-bold hover:text-purple-300 transition-colors cursor-pointer flex-shrink-0"
             >
               StellarSaaS
             </button>
@@ -162,30 +162,59 @@ export default function Navigation({
           </div>
           
           {/* User Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
             {currentPage !== 'profile' && (
               <Link
                 href="/profile"
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base hidden sm:block"
               >
                 Profile
               </Link>
             )}
             <button
               onClick={handleLogout}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
             >
               Logout
             </button>
             {userData && (
-              <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-medium">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white text-xs sm:text-sm font-medium">
                   {userData.name.split(' ').map((n: string) => n[0]).join('')}
                 </span>
               </div>
             )}
           </div>
         </div>
+        
+        {/* Mobile Navigation Links */}
+        {currentPage === 'dashboard' && showTabs && tabs.length > 0 && (
+          <div className="md:hidden mt-3 flex space-x-4 overflow-x-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => onTabChange?.(tab.id)}
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${
+                  activeTab === tab.id ? 'text-purple-400' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        )}
+        
+        {/* Mobile Profile Link */}
+        {currentPage !== 'profile' && (
+          <div className="sm:hidden mt-3">
+            <Link
+              href="/profile"
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+            >
+              Profile
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

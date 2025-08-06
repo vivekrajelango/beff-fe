@@ -113,7 +113,18 @@ export default function LoginPage() {
 
         {/* Main Form Section */}
         <div className="w-full flex items-center justify-center p-6">
-          <div className="bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/10 w-full max-w-md">
+          <div className="bg-black/20 backdrop-blur-md rounded-3xl p-8 border border-white/10 w-full max-w-md relative">
+            {/* Close Icon */}
+            <button
+              onClick={() => router.push('/')}
+              className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+              aria-label="Close"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
             <div className="mb-6">
               <h2 className="text-white text-2xl font-bold mb-2">
                 {isSignUp ? 'SIGN UP' : 'SIGN IN'}
@@ -228,15 +239,7 @@ export default function LoginPage() {
               </button>
             </div>
 
-            <div className="mt-6 text-center flex flex-row items-center justify-center">
-              <button
-                type="submit"
-                onClick={()=>router.push('/')}
-                className="w-1/3 bg-purple-400 hover:bg-purple-300 text-white font-semibold py-1 rounded-lg transition-colors flex items-center justify-center"
-              >
-                Cancel
-              </button>
-            </div>
+
 
             {isSignUp && (
               <div className="mt-4 text-center">

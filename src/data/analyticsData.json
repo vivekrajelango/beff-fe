@@ -1,7 +1,7 @@
 {
   "revenue": {
     "monthly": [
-      { "month": "Jan", "value": 12450, "growth": 8.2 },
+      { "month": "Jan", "value": 19450, "growth": 8.2 },
       { "month": "Feb", "value": 13200, "growth": 6.0 },
       { "month": "Mar", "value": 14800, "growth": 12.1 },
       { "month": "Apr", "value": 16200, "growth": 9.5 },
@@ -56,7 +56,7 @@
     { "plan": "Free", "users": 1247, "percentage": 62.4, "color": "#8B5CF6" },
     { "plan": "Pro", "users": 489, "percentage": 24.5, "color": "#06B6D4" },
     { "plan": "Enterprise", "users": 156, "percentage": 7.8, "color": "#10B981" },
-    { "plan": "Premium", "users": 108, "percentage": 5.4, "color": "#F59E0B" }
+    { "plan": "Premium", "users": 508, "percentage": 5.4, "color": "#F59E0B" }
   ],
   "geographicData": [
     { "region": "Japan", "users": 856, "revenue": 45200, "size": 25 },
