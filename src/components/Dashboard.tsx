@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Navigation from './Navigation';
+import AnalyticsCharts from './AnalyticsCharts';
 
 // Mock data for dashboard
 const mockUserData = {
@@ -240,11 +241,12 @@ export default function Dashboard() {
         )}
 
         {activeTab === 'analytics' && (
-          <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 text-center">
-            <h2 className="text-white text-2xl font-semibold mb-4">Analytics Dashboard</h2>
-            <p className="text-gray-300 mb-6">Detailed analytics and reporting features coming soon!</p>
-            <div className="text-6xl mb-4">📊</div>
-            <p className="text-gray-400">This section will include charts, graphs, and detailed metrics.</p>
+          <div>
+            <div className="mb-6">
+              <h2 className="text-white text-2xl font-semibold mb-2">Analytics Dashboard</h2>
+              <p className="text-gray-300">Comprehensive insights into your SaaS performance and user behavior.</p>
+            </div>
+            <AnalyticsCharts />
           </div>
         )}
 

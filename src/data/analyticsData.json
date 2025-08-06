@@ -1,0 +1,80 @@
+{
+  "revenue": {
+    "monthly": [
+      { "month": "Jan", "value": 12450, "growth": 8.2 },
+      { "month": "Feb", "value": 13200, "growth": 6.0 },
+      { "month": "Mar", "value": 14800, "growth": 12.1 },
+      { "month": "Apr", "value": 16200, "growth": 9.5 },
+      { "month": "May", "value": 15800, "growth": -2.5 },
+      { "month": "Jun", "value": 18500, "growth": 17.1 }
+    ],
+    "quarterly": [
+      { "quarter": "Q1", "value": 40450, "target": 42000 },
+      { "quarter": "Q2", "value": 50500, "target": 48000 },
+      { "quarter": "Q3", "value": 55200, "target": 52000 },
+      { "quarter": "Q4", "value": 48900, "target": 50000 }
+    ]
+  },
+  "userEngagement": {
+    "byFeature": [
+      { "feature": "Dashboard", "usage": 85, "satisfaction": 4.2 },
+      { "feature": "Analytics", "usage": 72, "satisfaction": 4.5 },
+      { "feature": "Reports", "usage": 68, "satisfaction": 3.9 },
+      { "feature": "Settings", "usage": 45, "satisfaction": 4.1 },
+      { "feature": "API", "usage": 38, "satisfaction": 4.7 },
+      { "feature": "Integrations", "usage": 29, "satisfaction": 4.3 }
+    ],
+    "heatmapData": [
+      { "day": "Monday", "hour": 9, "activity": 85 },
+      { "day": "Monday", "hour": 10, "activity": 92 },
+      { "day": "Monday", "hour": 11, "activity": 78 },
+      { "day": "Monday", "hour": 14, "activity": 65 },
+      { "day": "Monday", "hour": 15, "activity": 88 },
+      { "day": "Tuesday", "hour": 9, "activity": 76 },
+      { "day": "Tuesday", "hour": 10, "activity": 89 },
+      { "day": "Tuesday", "hour": 11, "activity": 95 },
+      { "day": "Tuesday", "hour": 14, "activity": 72 },
+      { "day": "Tuesday", "hour": 15, "activity": 81 },
+      { "day": "Wednesday", "hour": 9, "activity": 82 },
+      { "day": "Wednesday", "hour": 10, "activity": 87 },
+      { "day": "Wednesday", "hour": 11, "activity": 91 },
+      { "day": "Wednesday", "hour": 14, "activity": 69 },
+      { "day": "Wednesday", "hour": 15, "activity": 84 },
+      { "day": "Thursday", "hour": 9, "activity": 79 },
+      { "day": "Thursday", "hour": 10, "activity": 93 },
+      { "day": "Thursday", "hour": 11, "activity": 86 },
+      { "day": "Thursday", "hour": 14, "activity": 77 },
+      { "day": "Thursday", "hour": 15, "activity": 90 },
+      { "day": "Friday", "hour": 9, "activity": 88 },
+      { "day": "Friday", "hour": 10, "activity": 94 },
+      { "day": "Friday", "hour": 11, "activity": 89 },
+      { "day": "Friday", "hour": 14, "activity": 83 },
+      { "day": "Friday", "hour": 15, "activity": 75 }
+    ]
+  },
+  "subscriptionBreakdown": [
+    { "plan": "Free", "users": 1247, "percentage": 62.4, "color": "#8B5CF6" },
+    { "plan": "Pro", "users": 489, "percentage": 24.5, "color": "#06B6D4" },
+    { "plan": "Enterprise", "users": 156, "percentage": 7.8, "color": "#10B981" },
+    { "plan": "Premium", "users": 108, "percentage": 5.4, "color": "#F59E0B" }
+  ],
+  "geographicData": [
+    { "region": "Japan", "users": 856, "revenue": 45200, "size": 25 },
+    { "region": "Europe", "users": 642, "revenue": 38900, "size": 20 },
+    { "region": "Asia Pacific", "users": 523, "revenue": 28700, "size": 18 },
+    { "region": "South America", "users": 234, "revenue": 12400, "size": 12 },
+    { "region": "Africa", "users": 145, "revenue": 8200, "size": 8 },
+    { "region": "Middle East", "users": 98, "revenue": 5600, "size": 6 },
+    { "region": "North America", "users": 67, "revenue": 3800, "size": 4 }
+  ],
+  "performanceMetrics": {
+    "conversionRates": [
+      { "source": "Organic Search", "visitors": 12450, "conversions": 398, "rate": 3.2 },
+      { "source": "Social Media", "visitors": 8920, "conversions": 267, "rate": 3.0 },
+      { "source": "Email Campaign", "visitors": 5670, "conversions": 284, "rate": 5.0 },
+      { "source": "Paid Ads", "visitors": 4230, "conversions": 190, "rate": 4.5 },
+      { "source": "Direct", "visitors": 3890, "conversions": 156, "rate": 4.0 },
+      { "source": "Referral", "visitors": 2340, "conversions": 94, "rate": 4.0 }
+    ]
+  }
+}
