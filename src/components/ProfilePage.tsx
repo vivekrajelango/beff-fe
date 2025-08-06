@@ -224,7 +224,7 @@ export default function ProfilePage() {
             </button>
             <button
               onClick={() => setActiveTab('privacy')}
-              className={`px-6 py-4 font-medium transition-colors ${
+              className={`px-2 py-4 font-medium transition-colors ${
                 activeTab === 'privacy'
                   ? 'text-purple-400 border-b-2 border-purple-400'
                   : 'text-gray-300 hover:text-white'
